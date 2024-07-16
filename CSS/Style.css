@@ -1,0 +1,36 @@
+*{
+    background-color: #d0e9f1;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}
+
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.presentation {
+    height: 70vh;
+    align-content: center;
+
+}
+.presentation-img{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+}
+    
+
+.presentation p {
+    margin: 0 1rem 2.5rem 1rem;
+}
+
+h1{
+    font-weight: 700;
+    color: #345fa1;
+}
+
+.videogames{
+    height: 70vh;
+}
+
