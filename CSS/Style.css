@@ -42,7 +42,7 @@ h1{
     top: 5%;
 }
 
-.presentation p {
+section p {
     margin: 2rem 1rem 2.5rem 1rem;
     font-size: 1.3rem;
 }
@@ -67,4 +67,8 @@ h1{
 }
 .videogames .pigGame p{
     text-align: center;
+}
+
+.scrollBackToTheTop{
+    border-radius: 2rem;
 }
