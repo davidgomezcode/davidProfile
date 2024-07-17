@@ -1,36 +1,70 @@
 *{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
     background-color: #d0e9f1;
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
 }
-
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+    padding: 1rem;
+}
 .hidden {
     visibility: hidden;
     opacity: 0;
 }
 
 .presentation {
-    height: 70vh;
+    height: 51vh;
     align-content: center;
 
 }
-.presentation-img{
-    position: fixed;
-    top: 50%;
-    left: 50%;
-}
-    
-
-.presentation p {
-    margin: 0 1rem 2.5rem 1rem;
-}
-
 h1{
     font-weight: 700;
     color: #345fa1;
+    font-size: 2.2rem;
+}
+.presentation-img{
+    position: absolute;
+    top: 12%;
+    left: 30%;
+    width: 19rem;
+}
+
+.presentation-img img{
+    max-width: 100%;
+}
+.close--presentation-img{
+    position: absolute;
+    right: 5%;
+    top: 5%;
+}
+
+.presentation p {
+    margin: 2rem 1rem 2.5rem 1rem;
+    font-size: 1.3rem;
 }
 
 .videogames{
     height: 70vh;
 }
-
+.videogames a {
+    list-style-type: none;
+    font-size: 1.5rem;
+    margin: 1.5rem;
+}
+.videogames .pigGame {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20rem;
+}
+.videogames .pigGame img {
+    width: 12rem;
+    border-radius: 2rem;
+}
+.videogames .pigGame p{
+    text-align: center;
+}
