@@ -1,0 +1,65 @@
+/* The fundamental settings: */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  place-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: lightblue;
+}
+.number-1 {
+  width: 90vw;
+  height: 90vh;
+  /* background-color: black; */
+}
+.number-2 {
+  width: 80vw;
+  height: 80vh;
+  /* background-color: blue; */
+}
+.number-3 {
+  width: 70vw;
+  height: 70vh;
+  /* background-color: orange; */
+}
+.number-4 {
+  width: 60vw;
+  height: 60vh;
+  /* background-color: orange; */
+}
+.number-5 {
+  width: 50vw;
+  height: 50vh;
+  /* background-color: orange; */
+}
+.number-6 {
+  width: 40vw;
+  height: 40vh;
+  /* background-color: orange; */
+}
+.number-7 {
+  width: 30vw;
+  height: 30vh;
+  /* background-color: orange; */
+}
+.number-8 {
+  width: 20vw;
+  height: 20vh;
+  /* background-color: orange; */
+}
+.number-9 {
+  width: 10vw;
+  height: 10vh;
+  /* background-color: orange; */
+}
