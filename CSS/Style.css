@@ -51,31 +51,52 @@ section p {
   font-size: 1.3rem;
 }
 
-.videogames {
+.videogames,
+.gadgets {
   height: 70vh;
   display: flex;
   flex-wrap: wrap;
   margin-top: 4rem;
+  justify-content: center;
 }
-.videogames a {
+.videogames a,
+.gadgets a {
   list-style-type: none;
   font-size: 1.5rem;
   margin: 1.5rem;
 }
-.videogames .game {
+.videogames .game,
+.gadgets .colorWaves {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 17.5rem;
+  text-align: center;
 }
-.videogames .game img {
+.gadgets .colorWaves {
+  width: 19.5rem;
+}
+.videogames .game img,
+.gadgets .colorWaves img {
   width: 12rem;
   border-radius: 2rem;
+}
+.gadgets .colorWaves img {
+  border-radius: 4rem;
 }
 .videogames .game p {
   text-align: center;
 }
+.gadgetP {
+  margin-top: 1rem;
+}
 
 .scrollBackToTheTop {
+  text-align: center;
+}
+
+.scrollBackToTheTopButton {
   border-radius: 2rem;
+  width: 12rem;
+  height: 3rem;
 }

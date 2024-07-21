@@ -8,7 +8,66 @@
 html {
   font-size: 62.5%;
   box-sizing: border-box;
+  background-color: black;
 }
+.hide {
+  display: none;
+}
+.opacityNone {
+  opacity: 0;
+}
+/* Section optionColors */
+.optionColors {
+  height: 54rem;
+}
+.question {
+  color: white;
+  display: flex;
+  width: 80%;
+  height: 10rem;
+  margin: 25% auto;
+  margin-bottom: 8%;
+}
+.colors {
+  display: flex;
+  flex-direction: column;
+  margin: 0% auto;
+  width: 100%;
+  place-content: center;
+}
+.colors section {
+  display: flex;
+  place-content: center;
+}
+.colors .color {
+  color: white;
+  margin: 3%;
+  padding: 4%;
+  font-size: 3rem;
+  border: 0.2rem solid white;
+  border-radius: 4rem;
+}
+/* Colors of the options  */
+.colors .colorBlue {
+  color: #8585f3;
+}
+
+.colors .colorBlue :hover {
+  background-color: grey;
+}
+.colors .colorRed {
+  color: #f14949;
+}
+.colors .colorGreen {
+  color: #61db61;
+}
+
+.colors .random {
+  width: 14rem;
+  margin: 4rem auto;
+}
+
+/* Section container */
 
 .container {
   display: flex;
@@ -17,49 +76,41 @@ html {
   width: 100vw;
   height: 100vh;
   background-color: lightblue;
+  border-radius: 23rem;
 }
 .number-1 {
   width: 90vw;
   height: 90vh;
-  /* background-color: black; */
 }
 .number-2 {
   width: 80vw;
   height: 80vh;
-  /* background-color: blue; */
 }
 .number-3 {
   width: 70vw;
   height: 70vh;
-  /* background-color: orange; */
 }
 .number-4 {
   width: 60vw;
   height: 60vh;
-  /* background-color: orange; */
 }
 .number-5 {
   width: 50vw;
   height: 50vh;
-  /* background-color: orange; */
 }
 .number-6 {
   width: 40vw;
   height: 40vh;
-  /* background-color: orange; */
 }
 .number-7 {
   width: 30vw;
   height: 30vh;
-  /* background-color: orange; */
 }
 .number-8 {
   width: 20vw;
   height: 20vh;
-  /* background-color: orange; */
 }
 .number-9 {
   width: 10vw;
   height: 10vh;
-  /* background-color: orange; */
 }
