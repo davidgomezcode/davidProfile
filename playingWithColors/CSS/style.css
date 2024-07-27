@@ -18,15 +18,18 @@ html {
 }
 /* Section optionColors */
 .optionColors {
-  height: 54rem;
+  height: 160vh;
 }
 .question {
   color: white;
   display: flex;
   width: 80%;
-  height: 10rem;
+  height: 2rem;
   margin: 25% auto;
   margin-bottom: 8%;
+  justify-content: center;
+  margin-top: 4rem;
+  font-size: 2.2rem;
 }
 .colors {
   display: flex;
@@ -39,13 +42,30 @@ html {
   display: flex;
   place-content: center;
 }
-.colors .color {
+.colors .color,
+.speed {
   color: white;
   margin: 3%;
   padding: 4%;
-  font-size: 3rem;
+  font-size: 1.6rem;
   border: 0.2rem solid white;
   border-radius: 4rem;
+}
+.colors .color:active,
+.speed:active {
+  font-size: 2.6rem;
+  border: 0.8rem solid white;
+}
+.go {
+  margin: 3%;
+  padding: 4%;
+  font-size: 1.6rem;
+  border: 0.2rem solid white;
+  border-radius: 4rem;
+  align-self: center;
+  text-align: center;
+  margin-top: 5rem;
+  width: 10rem;
 }
 /* Colors of the options  */
 .colors .colorBlue {
@@ -63,54 +83,85 @@ html {
 }
 
 .colors .random {
-  width: 14rem;
   margin: 4rem auto;
+  margin-top: 2rem;
+}
+.questionSpeed {
+  margin-top: 1rem;
+}
+.speeds {
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
 }
 
+.speed {
+  color: white;
+  width: fit-content;
+}
 /* Section container */
-
+.principalContainer {
+  overflow: hidden;
+  transform: translate(-13%, -50%);
+}
 .container {
   display: flex;
   place-content: center;
   align-items: center;
-  width: 100vw;
-  height: 100vh;
+  width: 140vw;
+  height: 140vh;
   background-color: lightblue;
   border-radius: 23rem;
 }
 .number-1 {
+  width: 130vw;
+  height: 130vh;
+}
+.number-2 {
+  width: 120vw;
+  height: 120vh;
+}
+.number-3 {
+  width: 110vw;
+  height: 110vh;
+}
+.number-4 {
+  width: 100vw;
+  height: 100vh;
+}
+.number-5 {
   width: 90vw;
   height: 90vh;
 }
-.number-2 {
+.number-6 {
   width: 80vw;
   height: 80vh;
 }
-.number-3 {
+.number-7 {
   width: 70vw;
   height: 70vh;
 }
-.number-4 {
+.number-8 {
   width: 60vw;
   height: 60vh;
 }
-.number-5 {
+.number-9 {
   width: 50vw;
   height: 50vh;
 }
-.number-6 {
+.number-10 {
   width: 40vw;
   height: 40vh;
 }
-.number-7 {
+.number-11 {
   width: 30vw;
   height: 30vh;
 }
-.number-8 {
+.number-12 {
   width: 20vw;
   height: 20vh;
 }
-.number-9 {
+.number-13 {
   width: 10vw;
   height: 10vh;
 }
