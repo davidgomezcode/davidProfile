@@ -2,10 +2,14 @@
 
 //Section optionColors and speed selectors:
 const optionColors = document.querySelector(".optionColors");
+const colorsContainer = document.querySelector(".colorsContainer");
+const colors = document.querySelectorAll(".color");
 const colorBlue = document.querySelector(".colorBlue");
 const colorRed = document.querySelector(".colorRed");
 const colorGreen = document.querySelector(".colorGreen");
 const random = document.querySelector(".random");
+const speedsContainer = document.querySelector(".speeds");
+const speeds = document.querySelectorAll(".speed");
 const slow = document.querySelector(".slow");
 const fast = document.querySelector(".fast");
 const questionGo = document.querySelector(".questionGo");
@@ -36,23 +40,32 @@ let randomColor = () =>
   `rgba(${randomInt(0, 255)}, ${randomInt(0, 255)}, ${randomInt(0, 255)}`;
 
 //Event listeners:
-//change to blue:
+
+//Highlights the selected color:
+colorsContainer.addEventListener("click", function (e) {
+  colors.forEach((color) => color.classList.remove("colorsChoosed"));
+  if (!e.target.closest("p")) return;
+  e.target.classList.add("colorsChoosed");
+});
+
+//Change the random colors to blue:
 colorBlue.addEventListener("click", function () {
   randomColor = () =>
     `rgba(${randomInt(0, 60)}, ${randomInt(0, 60)}, ${randomInt(70, 255)}`;
-  colorBlue.classList.toggle("colorsChoosed");
+  // colors.forEach((color) => color.classList.remove("colorsChoosed"));
+  // colorBlue.classList.add("colorsChoosed");
 });
-//Change to red:
+//Change the random colors to red:
 colorRed.addEventListener("click", function () {
   randomColor = () =>
     `rgba(${randomInt(70, 255)}, ${randomInt(0, 60)}, ${randomInt(0, 60)}`;
 });
-//Change to green:
+//Change the random colors to green:
 colorGreen.addEventListener("click", function () {
   randomColor = () =>
     `rgba(${randomInt(0, 60)}, ${randomInt(70, 255)}, ${randomInt(0, 60)}`;
 });
-//Keep random:
+//Keep the random colors to all colors-random:
 random.addEventListener("click", function () {
   randomColor = () =>
     `rgba(${randomInt(0, 255)}, ${randomInt(0, 255)}, ${randomInt(0, 255)}`;
@@ -60,13 +73,27 @@ random.addEventListener("click", function () {
 
 // Speed of propagation
 let lapse = 140; // by default the speed is 140
+
+// Highlight the chosen one:
+speedsContainer.addEventListener("click", function (e) {
+  speeds.forEach((s) => s.classList.remove("speedChoosed"));
+  e.target.classList.add("speedChoosed");
+});
+
+// colorsContainer.addEventListener("click", function (e) {
+//   colors.forEach((color) => color.classList.remove("colorsChoosed"));
+//   e.target.classList.add("colorsChoosed");
+// });
+
+//Example above
+//
+//
+
 slow.addEventListener("click", function () {
-  console.log("the click is heard");
   lapse = 200; //slow speed
 });
 
 fast.addEventListener("click", function () {
-  console.log("the click is heard");
   lapse = 80; //fast speed
 });
 
