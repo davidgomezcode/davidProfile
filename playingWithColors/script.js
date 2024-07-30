@@ -52,8 +52,6 @@ colorsContainer.addEventListener("click", function (e) {
 colorBlue.addEventListener("click", function () {
   randomColor = () =>
     `rgba(${randomInt(0, 60)}, ${randomInt(0, 60)}, ${randomInt(70, 255)}`;
-  // colors.forEach((color) => color.classList.remove("colorsChoosed"));
-  // colorBlue.classList.add("colorsChoosed");
 });
 //Change the random colors to red:
 colorRed.addEventListener("click", function () {
@@ -74,21 +72,13 @@ random.addEventListener("click", function () {
 // Speed of propagation
 let lapse = 140; // by default the speed is 140
 
-// Highlight the chosen one:
+// Highlight the speed chosen:
 speedsContainer.addEventListener("click", function (e) {
   speeds.forEach((s) => s.classList.remove("speedChoosed"));
   e.target.classList.add("speedChoosed");
 });
 
-// colorsContainer.addEventListener("click", function (e) {
-//   colors.forEach((color) => color.classList.remove("colorsChoosed"));
-//   e.target.classList.add("colorsChoosed");
-// });
-
-//Example above
-//
-//
-
+//Change the speed of propagation.
 slow.addEventListener("click", function () {
   lapse = 200; //slow speed
 });
@@ -104,11 +94,6 @@ questionGo.addEventListener("click", function () {
   principalContainer.classList.toggle("opacityNone");
   optionColors.classList.toggle("opacityNone");
 });
-
-//SEE IF WE CAN ELIMINATE THIS ----------XXXXXXXXXXX
-// number3.addEventListener("click", function () {
-//   number3.style.backgroundColor = `${randomColor(0, 255)}`;
-// });
 
 // Specify the speed of propagation.
 number13.addEventListener("click", function () {
@@ -199,12 +184,3 @@ container.addEventListener("click", function () {
     lapse * 14
   );
 });
-
-// number1.addEventListener(
-//   "click",
-//   () => (number1.style.backgroundColor = `${randomColor(0, 255)}`)
-// );
-// container.addEventListener(
-//   "click",
-//   () => (container.style.backgroundColor = `${randomColor(0, 255)}`)
-// );
