@@ -11,9 +11,14 @@ html {
   box-sizing: border-box;
   padding: 1rem;
 }
+/* The transition indicates the lapse to the transform and opacity to take place in the .hidden class: */
+section {
+  transition: transform 1s, opacity 1s;
+}
 .hidden {
   visibility: hidden;
   opacity: 0;
+  transform: translateY(8rem);
 }
 
 .presentation {
@@ -24,6 +29,7 @@ h1 {
   font-weight: 700;
   color: #345fa1;
   font-size: 2.2rem;
+  margin-bottom: 2rem;
 }
 
 .presentation-img img {
