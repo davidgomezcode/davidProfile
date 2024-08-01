@@ -43,9 +43,21 @@ let randomColor = () =>
 
 //Highlights the selected color:
 colorsContainer.addEventListener("click", function (e) {
+  //Using the styles contained in the class "colorsChoosed"
   colors.forEach((color) => color.classList.remove("colorsChoosed"));
   if (!e.target.closest("p")) return;
   e.target.classList.add("colorsChoosed");
+  //Changing the opacity:
+  colors.forEach((el) => {
+    //First all return to the complete opacity
+    el.style.opacity = 1;
+  });
+  colors.forEach((el) => {
+    // Then the ones that were not chosen reduce their opacity to 0.5
+    if (el !== e.target) {
+      el.style.opacity = 0.5;
+    }
+  });
 });
 
 //Change the random colors to blue:
