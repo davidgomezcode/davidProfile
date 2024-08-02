@@ -109,6 +109,18 @@ section p {
 .gadgetP {
   margin-top: 1rem;
 }
+.petsPictures {
+  height: 70vh;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 4rem;
+  justify-content: center;
+}
+
+.optionNyxImg {
+  width: 10rem;
+  border-radius: 5rem;
+}
 
 .scrollBackToTheTop {
   text-align: center;
