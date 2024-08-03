@@ -152,11 +152,12 @@ section p {
 /* Slider Children */
 
 /* The ones that are visible */
+.optionChosen.sliderChild {
+  overflow-x: hidden;
+}
 .optionChosen .article {
   height: 36rem;
   margin-bottom: 4rem;
-  /* transform: translateX(0px);
-  transition: transform 1s ease-in-out; */
 }
 .sliderImg {
   text-align: center;
@@ -169,20 +170,20 @@ section p {
 }
 
 /* Movement of slides: */
-
-/* .article.slide.slideGetIntoView {
+.article.slide.slideGetIntoView {
   transform: translateX(0px);
-  transition: transform 1s ease-in-out;
-} */
+  transition: transform 1s ease;
+  pointer-events: none;
+}
 
 /* The ones that are not visible  */
 .slideAtRight {
   transform: translateX(200px);
-  /* transition: transform 1s ease-in-out; */
+  pointer-events: none;
 }
 .slideAtLeft {
   transform: translateX(-200px);
-  /* transition: transform 1s ease-in-out; */
+  pointer-events: none;
 }
 .optionChosen .article.hide {
   display: none;

@@ -96,26 +96,96 @@ const whichSlideShown = function () {
 
 //Logic of the two arrow listeners:
 sliderArrowRight.addEventListener("click", function () {
+  console.log("The click is heard");
   whichSlideShown();
   slides.forEach(function (slide, i) {
+    //We remove all the additional classes that could be present from the previous clicking:
+    slide.classList.remove("slideAtRight");
+    slide.classList.remove("slideAtLeft");
+    slide.classList.remove("slideGetIntoView");
+
+    //We hide all the slides and set them to the right:
     slide.classList.add("hide");
+    slide.classList.add("slideAtRight");
   });
   if (slideShown.nextElementSibling === null) {
-    slideShown.parentElement.firstElementChild.classList.remove("hide");
+    // if there are no more slides to the right
+    slideShown.parentElement.firstElementChild.classList.remove("hide"); //Show the first slide
+    setTimeout(function () {
+      //And bring it into view in 180 milliseconds:
+      slideShown.parentElement.firstElementChild.classList.add(
+        "slideGetIntoView"
+      );
+    }, 180);
   } else {
+    //If there are more slides to the right, bring the next one into view:
     slideShown.nextElementSibling.classList.remove("hide");
+    setTimeout(function () {
+      slideShown.nextElementSibling.classList.add("slideGetIntoView");
+    }, 180);
   }
 });
+
+//Security copy:
+// sliderArrowRight.addEventListener("click", function () {
+//   console.log("The click is heard");
+//   whichSlideShown();
+//   slides.forEach(function (slide, i) {
+//     // slide.classList.remove("slideAtRight");
+//     // slide.classList.remove("slideGetIntoView");
+
+//     slide.classList.add("hide");
+//     // slide.classList.add("slideAtRight");
+//   });
+//   if (slideShown.nextElementSibling === null) {
+//     slideShown.parentElement.firstElementChild.classList.remove("hide");
+//     // setTimeout(function () {
+//     //   slideShown.parentElement.firstElementChild.classList.add(
+//     //     "slideGetIntoView"
+//     //   );
+//     // }, 250);
+//     // slideShown.parentElement.firstElementChild.classList.add(
+//     //   "slideGetIntoView"
+//     // );
+//   } else {
+//     slideShown.nextElementSibling.classList.remove("hide");
+//     // setTimeout(function () {
+//     //   slideShown.nextElementSibling.classList.add("slideGetIntoView");
+//     // }, 250);
+//     // setTimeout(function () {
+//     //   whichSlideShown();
+//     //   slideShown.classList.remove("slideAtRight");
+//     //   slideShown.classList.remove("slideGetIntoView");
+//     // }, 500);
+//   }
+// });
 
 sliderArrowLeft.addEventListener("click", function () {
   whichSlideShown();
   slides.forEach(function (slide, i) {
+    //We remove all the additional classes that could be present from the previous clicking:
+    slide.classList.remove("slideAtRight");
+    slide.classList.remove("slideAtLeft");
+    slide.classList.remove("slideGetIntoView");
+    //We hide all the slides and set them to the left:
     slide.classList.add("hide");
+    slide.classList.add("slideAtLeft");
   });
 
   if (slideShown.previousElementSibling === null) {
-    slideShown.parentElement.lastElementChild.classList.remove("hide");
+    // if there are no more slides to the left
+    slideShown.parentElement.lastElementChild.classList.remove("hide"); //Show the last slide
+    setTimeout(function () {
+      //And bring it into view in 180 milliseconds:
+      slideShown.parentElement.lastElementChild.classList.add(
+        "slideGetIntoView"
+      );
+    }, 180);
   } else {
+    //If there are more slides to the left, bring the previous one into view:
     slideShown.previousElementSibling.classList.remove("hide");
+    setTimeout(function () {
+      slideShown.previousElementSibling.classList.add("slideGetIntoView");
+    }, 180);
   }
 });
