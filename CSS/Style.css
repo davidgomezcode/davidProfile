@@ -118,10 +118,14 @@ section p {
   margin-bottom: 6rem;
   justify-content: center;
 }
-
-.optionNyxImg {
+.options {
+  display: flex;
+}
+.optionNyxImg,
+.optionCleoImg {
   width: 10rem;
   border-radius: 5rem;
+  margin: 1.5rem;
 }
 
 /* Styles for the slider images */
@@ -151,6 +155,12 @@ section p {
 
 /* Slider Children */
 
+/* All are hide but the one that is being shown: */
+
+.optionChosen.sliderChildHide {
+  display: none;
+}
+
 /* The ones that are visible */
 .optionChosen.sliderChild {
   overflow-x: hidden;
@@ -167,6 +177,10 @@ section p {
   width: 14rem;
   border-radius: 2rem;
   margin-top: 3rem;
+}
+
+.article p {
+  text-align: center;
 }
 
 /* Movement of slides: */

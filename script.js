@@ -12,14 +12,20 @@ const lawyerImage = document.querySelector(".lawyerImage");
 const sections = document.querySelectorAll(".section");
 
 //Slider selectors:
+//Pet selection:
+//Nyx
+const optionNyxImg = document.querySelector(".optionNyxImg");
+const optionChosenNyx = document.querySelector(".optionChosenNyx");
+
+//Cleo:
+const optionCleoImg = document.querySelector(".optionCleoImg");
+const optionChosenCleo = document.querySelector(".optionChosenCleo");
+
 //1 Arrows:
 const sliderArrowRight = document.querySelector(
   ".sliderParentArrow.arrowRight"
 );
 const sliderArrowLeft = document.querySelector(".sliderParentArrow.arrowLeft");
-
-//Get all the slides of the slider that is being shown:
-const slides = document.querySelectorAll(".optionChosen .article.slide");
 
 //Listener to hide or unhide the lawyer image:
 lawyerWord.addEventListener("click", function () {
@@ -83,6 +89,46 @@ sections.forEach((section) => {
 
 //Slider code:
 
+//Pet selection:
+let slides;
+
+optionNyxImg.addEventListener("click", function () {
+  //We hide all the sliders
+  document
+    .querySelectorAll(".sliderParent .optionChosen")
+    .forEach((optionChosen) => optionChosen.classList.add("sliderChildHide"));
+  //All articles lose the class slide
+  document
+    .querySelectorAll(".article")
+    .forEach((article) => article.classList.remove("slide"));
+
+  //We show the chosen slider
+  optionChosenNyx.classList.remove("sliderChildHide");
+  //We add the slide class to all the slides of the chosen slider
+  optionChosenNyx.querySelectorAll(".article").forEach((article) => {
+    article.classList.add("slide");
+  });
+  slides = document.querySelectorAll(".optionChosen .article.slide");
+});
+
+optionCleoImg.addEventListener("click", function () {
+  //We hide all the sliders
+  document
+    .querySelectorAll(".sliderParent .optionChosen")
+    .forEach((optionChosen) => optionChosen.classList.add("sliderChildHide"));
+  //All articles lose the class slide
+  document
+    .querySelectorAll(".article")
+    .forEach((article) => article.classList.remove("slide"));
+  //We show the chosen slider
+  optionChosenCleo.classList.remove("sliderChildHide");
+  //We add the slide class to all the slides of the chosen slider
+  optionChosenCleo.querySelectorAll(".article").forEach((article) => {
+    article.classList.add("slide");
+  });
+  slides = document.querySelectorAll(".optionChosen .article.slide");
+});
+
 //We store what slide is currently being shown
 
 let slideShown;
@@ -96,7 +142,6 @@ const whichSlideShown = function () {
 
 //Logic of the two arrow listeners:
 sliderArrowRight.addEventListener("click", function () {
-  console.log("The click is heard");
   whichSlideShown();
   slides.forEach(function (slide, i) {
     //We remove all the additional classes that could be present from the previous clicking:
