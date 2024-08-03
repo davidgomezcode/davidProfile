@@ -11,6 +11,16 @@ const lawyerWord = document.querySelector(".lawyerWord");
 const lawyerImage = document.querySelector(".lawyerImage");
 const sections = document.querySelectorAll(".section");
 
+//Slider selectors:
+//1 Arrows:
+const sliderArrowRight = document.querySelector(
+  ".sliderParentArrow.arrowRight"
+);
+const sliderArrowLeft = document.querySelector(".sliderParentArrow.arrowLeft");
+
+//Get all the slides of the slider that is being shown:
+const slides = document.querySelectorAll(".optionChosen .article.slide");
+
 //Listener to hide or unhide the lawyer image:
 lawyerWord.addEventListener("click", function () {
   lawyerImage.classList.toggle("hidden");
@@ -50,7 +60,7 @@ presentationImgIMG.addEventListener("click", function () {
 // IntersectionObserver in the sections to slow-show them as the user scroll down:
 
 const showSlow = function (e, observer) {
-  console.log(e[0].isIntersecting);
+  // console.log(e[0].isIntersecting);
   if (e[0].isIntersecting) {
     e[0].target.classList.remove("hidden"); // we remove the class hidden, so the section is shown.
     observer.unobserve(e[0].target); // we stop observing the section that is shown
@@ -69,4 +79,43 @@ sections.forEach((section) => {
   //at the beginning:
   section.classList.add("hidden"); //all sections are hidden
   sectionObserver.observe(section); // We use the same observer to observe each section.
+});
+
+//Slider code:
+
+//We store what slide is currently being shown
+
+let slideShown;
+const whichSlideShown = function () {
+  slides.forEach(function (slide) {
+    if (!slide.classList.contains("hide")) {
+      slideShown = slide;
+    }
+  });
+};
+
+//Logic of the two arrow listeners:
+sliderArrowRight.addEventListener("click", function () {
+  whichSlideShown();
+  slides.forEach(function (slide, i) {
+    slide.classList.add("hide");
+  });
+  if (slideShown.nextElementSibling === null) {
+    slideShown.parentElement.firstElementChild.classList.remove("hide");
+  } else {
+    slideShown.nextElementSibling.classList.remove("hide");
+  }
+});
+
+sliderArrowLeft.addEventListener("click", function () {
+  whichSlideShown();
+  slides.forEach(function (slide, i) {
+    slide.classList.add("hide");
+  });
+
+  if (slideShown.previousElementSibling === null) {
+    slideShown.parentElement.lastElementChild.classList.remove("hide");
+  } else {
+    slideShown.previousElementSibling.classList.remove("hide");
+  }
 });
