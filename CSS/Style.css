@@ -127,11 +127,17 @@ section p {
   max-height: 14rem;
 }
 
-.optionNyxImg,
-.optionCleoImg {
+.petOptionImg {
   width: 10rem;
   border-radius: 5rem;
   margin: 1.5rem;
+}
+.petOptionsParent .petOptionImg.petOptionImgSelected {
+  border: 0.2rem solid #0971df;
+  transform: scale(1.3);
+}
+.petOptionsParent .petOptionImg.petOptionImgNotSelected {
+  filter: blur(0.1rem);
 }
 
 /* Styles for the slider images */

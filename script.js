@@ -17,10 +17,10 @@ const sections = document.querySelectorAll(".section");
 const petOptionsParent = document.querySelector(".petOptionsParent");
 //Nyx:
 const optionChosenNyx = document.querySelector(".optionChosenNyx");
-
 //Cleo:
 const optionChosenCleo = document.querySelector(".optionChosenCleo");
-
+//Jordan:
+const optionChosenJordan = document.querySelector(".optionChosenJordan");
 //1 Arrows:
 const sliderArrowRight = document.querySelector(
   ".sliderParentArrow.arrowRight"
@@ -172,11 +172,22 @@ petOptionsParent.addEventListener("click", function (e) {
     optionChosen = optionChosenNyx;
   } else if (e.target.classList.contains("optionCleoImg")) {
     optionChosen = optionChosenCleo;
+  } else if (e.target.classList.contains("optionJordanImg")) {
+    optionChosen = optionChosenJordan;
   }
   // We reset all sliders and show only the one that was chosen by the user:
   if (e.target.classList.contains("petOptionImg")) {
     resetSliders();
     showSlider(optionChosen);
+    //We eliminate the class petOptionImgSelected and add the class petOptionImgNotSelected from all the petOptionImg:
+    document.querySelectorAll(".petOptionImg").forEach((img) => {
+      img.classList.remove("petOptionImgSelected");
+      img.classList.add("petOptionImgNotSelected"); //This add a blur of 1px
+    });
+
+    //We give the class petOptionImgSelected only to the one selected and remove the blur:
+    e.target.classList.add("petOptionImgSelected");
+    e.target.classList.remove("petOptionImgNotSelected");
   }
 });
 
