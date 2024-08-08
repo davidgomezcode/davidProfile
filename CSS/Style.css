@@ -135,9 +135,12 @@ section p {
 .sliderParent {
   background-color: #d5ede8;
   width: 95%;
-  height: 40rem;
+  height: 42rem;
   margin: 6rem auto;
   position: relative;
+  /* To center the dots: */
+  display: flex;
+  justify-content: center;
 }
 .sliderParentArrow img {
   width: 3rem;
@@ -151,6 +154,20 @@ section p {
   position: absolute;
   top: 12rem;
   left: 3rem;
+}
+.dots {
+  position: absolute;
+  bottom: 2rem;
+}
+.dots_dot {
+  width: 0.5rem;
+  /* background-color: grey; */
+  border: 0.5rem solid #c5baba;
+  border-radius: 4rem;
+  margin: 0.6rem;
+}
+.dots_dot.dots_shown {
+  border: 0.5rem solid grey;
 }
 
 /* Slider Children */

@@ -27,6 +27,10 @@ const sliderArrowRight = document.querySelector(
 );
 const sliderArrowLeft = document.querySelector(".sliderParentArrow.arrowLeft");
 
+//Dots:
+const dots = document.querySelector(".dots");
+let dotsDot;
+
 //Listener to hide or unhide the lawyer image:
 lawyerWord.addEventListener("click", function () {
   lawyerImage.classList.toggle("hidden");
@@ -71,8 +75,6 @@ const showSlow = function (e, observer) {
     e[0].target.classList.remove("hidden"); // we remove the class hidden, so the section is shown.
     observer.unobserve(e[0].target); // we stop observing the section that is shown
   }
-
-  // console.log(observer);
 };
 const optionsShowSlow = {
   root: null,
@@ -89,60 +91,95 @@ sections.forEach((section) => {
 
 //Slider code:
 
-//Pet selection:
-let slides;
-
-optionNyxImg.addEventListener("click", function () {
-  //We hide all the sliders
-  document
-    .querySelectorAll(".sliderParent .optionChosen")
-    .forEach((optionChosen) => optionChosen.classList.add("sliderChildHide"));
-  //All articles lose the class slide
-  document
-    .querySelectorAll(".article")
-    .forEach((article) => article.classList.remove("slide"));
-
-  //We show the chosen slider
-  optionChosenNyx.classList.remove("sliderChildHide");
-  //We add the slide class to all the slides of the chosen slider
-  optionChosenNyx.querySelectorAll(".article").forEach((article) => {
-    article.classList.add("slide");
-  });
-  slides = document.querySelectorAll(".optionChosen .article.slide");
-});
-
-optionCleoImg.addEventListener("click", function () {
-  //We hide all the sliders
-  document
-    .querySelectorAll(".sliderParent .optionChosen")
-    .forEach((optionChosen) => optionChosen.classList.add("sliderChildHide"));
-  //All articles lose the class slide
-  document
-    .querySelectorAll(".article")
-    .forEach((article) => article.classList.remove("slide"));
-  //We show the chosen slider
-  optionChosenCleo.classList.remove("sliderChildHide");
-  //We add the slide class to all the slides of the chosen slider
-  optionChosenCleo.querySelectorAll(".article").forEach((article) => {
-    article.classList.add("slide");
-  });
-  slides = document.querySelectorAll(".optionChosen .article.slide");
-});
-
 //We store what slide is currently being shown
-
 let slideShown;
+let slideShownDot;
+let sideOfSlide;
+
+const updateSelectedDot = function () {
+  //We remove the class dots_shown from all the dots:
+  dotsDot.forEach((dot) => dot.classList.remove("dots_shown"));
+
+  //From the DOM we determine which slide is not hidden, and then we relate its index to the dot:
+  slides.forEach((slide, i) => {
+    if (!slide.classList.contains("hide")) {
+      slideShownDot = i;
+    }
+  });
+  //We add the class dots-shown only to the slide that is being shown:
+  dotsDot[slideShownDot].classList.add("dots_shown");
+};
+
 const whichSlideShown = function () {
   slides.forEach(function (slide) {
+    //the slide that is shown is the one that does not has the hide class:
     if (!slide.classList.contains("hide")) {
       slideShown = slide;
     }
   });
 };
+//Pet selection:
+let slides;
+//Function to reset all sliders:
+const resetSliders = function () {
+  //We hide all the sliders
+  document
+    .querySelectorAll(".sliderParent .optionChosen")
+    .forEach((optionChosen) => optionChosen.classList.add("sliderChildHide"));
+  //All articles lose the class slide
+  document
+    .querySelectorAll(".article")
+    .forEach((article) => article.classList.remove("slide"));
 
-//Logic of the two arrow listeners:
-sliderArrowRight.addEventListener("click", function () {
-  whichSlideShown();
+  dots.innerHTML = "";
+};
+
+//Function to show only the slider chosen:
+const showSlider = function (optionChosen) {
+  optionChosen.classList.remove("sliderChildHide");
+  //We add the slide class to all the slides of the chosen slider
+  optionChosen.querySelectorAll(".article").forEach((article) => {
+    article.classList.add("slide");
+  });
+  //After resetting all sliders and showing the option chosen, we redefine the variable slides:
+  slides = document.querySelectorAll(".optionChosen .article.slide");
+  slides.forEach((_, i) => {
+    // console.log(slide.dataset.slidenumber);
+    //Dots to indicate in what image of the slider the user is:
+
+    dots.insertAdjacentHTML(
+      "beforeend",
+      `<button class="dots_dot" data-slide="${i}"></button>`
+    );
+  });
+
+  //We initialize the dotsDot variable with all the dots:
+  dotsDot = document.querySelectorAll(".dots_dot");
+  // whichSlideShown();
+  slides.forEach(function (slide) {
+    //We determined the first slide to be shown:
+    if (!slide.classList.contains("hide")) {
+      slideShown = slide;
+    }
+  });
+  updateSelectedDot();
+};
+
+//Pet selection:
+optionNyxImg.addEventListener("click", function () {
+  resetSliders();
+  showSlider(optionChosenNyx);
+});
+
+optionCleoImg.addEventListener("click", function () {
+  resetSliders();
+  showSlider(optionChosenCleo);
+});
+
+//Functions related with the slider functioning:
+
+//ResetSlides eliminate the classes of positioning and add the classes of hiding and of
+const resetSlides = function () {
   slides.forEach(function (slide, i) {
     //We remove all the additional classes that could be present from the previous clicking:
     slide.classList.remove("slideAtRight");
@@ -151,8 +188,15 @@ sliderArrowRight.addEventListener("click", function () {
 
     //We hide all the slides and set them to the right:
     slide.classList.add("hide");
-    slide.classList.add("slideAtRight");
+
+    slide.classList.add(sideOfSlide);
   });
+};
+
+const sliderRight = function () {
+  whichSlideShown();
+  resetSlides();
+
   if (slideShown.nextElementSibling === null) {
     // if there are no more slides to the right
     slideShown.parentElement.firstElementChild.classList.remove("hide"); //Show the first slide
@@ -169,53 +213,11 @@ sliderArrowRight.addEventListener("click", function () {
       slideShown.nextElementSibling.classList.add("slideGetIntoView");
     }, 180);
   }
-});
+};
 
-//Security copy:
-// sliderArrowRight.addEventListener("click", function () {
-//   console.log("The click is heard");
-//   whichSlideShown();
-//   slides.forEach(function (slide, i) {
-//     // slide.classList.remove("slideAtRight");
-//     // slide.classList.remove("slideGetIntoView");
-
-//     slide.classList.add("hide");
-//     // slide.classList.add("slideAtRight");
-//   });
-//   if (slideShown.nextElementSibling === null) {
-//     slideShown.parentElement.firstElementChild.classList.remove("hide");
-//     // setTimeout(function () {
-//     //   slideShown.parentElement.firstElementChild.classList.add(
-//     //     "slideGetIntoView"
-//     //   );
-//     // }, 250);
-//     // slideShown.parentElement.firstElementChild.classList.add(
-//     //   "slideGetIntoView"
-//     // );
-//   } else {
-//     slideShown.nextElementSibling.classList.remove("hide");
-//     // setTimeout(function () {
-//     //   slideShown.nextElementSibling.classList.add("slideGetIntoView");
-//     // }, 250);
-//     // setTimeout(function () {
-//     //   whichSlideShown();
-//     //   slideShown.classList.remove("slideAtRight");
-//     //   slideShown.classList.remove("slideGetIntoView");
-//     // }, 500);
-//   }
-// });
-
-sliderArrowLeft.addEventListener("click", function () {
+const sliderLeft = function () {
   whichSlideShown();
-  slides.forEach(function (slide, i) {
-    //We remove all the additional classes that could be present from the previous clicking:
-    slide.classList.remove("slideAtRight");
-    slide.classList.remove("slideAtLeft");
-    slide.classList.remove("slideGetIntoView");
-    //We hide all the slides and set them to the left:
-    slide.classList.add("hide");
-    slide.classList.add("slideAtLeft");
-  });
+  resetSlides();
 
   if (slideShown.previousElementSibling === null) {
     // if there are no more slides to the left
@@ -233,4 +235,31 @@ sliderArrowLeft.addEventListener("click", function () {
       slideShown.previousElementSibling.classList.add("slideGetIntoView");
     }, 180);
   }
+};
+//Logic of the two arrow listeners:
+sliderArrowRight.addEventListener("click", function (e) {
+  sideOfSlide = e.target.parentElement.classList.contains("arrowRight")
+    ? "slideAtRight"
+    : "slideAtLeft";
+  sliderRight();
+  updateSelectedDot();
+});
+
+sliderArrowLeft.addEventListener("click", function (e) {
+  sideOfSlide = e.target.parentElement.classList.contains("arrowRight")
+    ? "slideAtRight"
+    : "slideAtLeft";
+  sliderLeft();
+  updateSelectedDot();
+});
+
+//Dot event listeners:
+
+dots.addEventListener("click", function (e) {
+  resetSlides();
+
+  // console.log(slides[e.target.dataset.slide]);
+  slides[e.target.dataset.slide].classList.remove("hide");
+  slides[e.target.dataset.slide].classList.add("slideGetIntoView");
+  updateSelectedDot();
 });
