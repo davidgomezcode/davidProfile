@@ -118,9 +118,15 @@ section p {
   margin-bottom: 6rem;
   justify-content: center;
 }
-.options {
+.petOptionsParent {
   display: flex;
+  text-align: center;
 }
+
+.petOptionsParent .petOptionImg {
+  max-height: 14rem;
+}
+
 .optionNyxImg,
 .optionCleoImg {
   width: 10rem;

@@ -13,12 +13,12 @@ const sections = document.querySelectorAll(".section");
 
 //Slider selectors:
 //Pet selection:
-//Nyx
-const optionNyxImg = document.querySelector(".optionNyxImg");
+
+const petOptionsParent = document.querySelector(".petOptionsParent");
+//Nyx:
 const optionChosenNyx = document.querySelector(".optionChosenNyx");
 
 //Cleo:
-const optionCleoImg = document.querySelector(".optionCleoImg");
 const optionChosenCleo = document.querySelector(".optionChosenCleo");
 
 //1 Arrows:
@@ -91,10 +91,9 @@ sections.forEach((section) => {
 
 //Slider code:
 
-//We store what slide is currently being shown
-let slideShown;
-let slideShownDot;
-let sideOfSlide;
+let slideShown; //We store what slide is currently being shown
+let slideShownDot; //To store the dot that will be highlighted
+let sideOfSlide; // Variable used to determine if the slides should go to the left or to the right to obtain the visual effect.
 
 const updateSelectedDot = function () {
   //We remove the class dots_shown from all the dots:
@@ -166,14 +165,19 @@ const showSlider = function (optionChosen) {
 };
 
 //Pet selection:
-optionNyxImg.addEventListener("click", function () {
-  resetSliders();
-  showSlider(optionChosenNyx);
-});
+petOptionsParent.addEventListener("click", function (e) {
+  let optionChosen; //We create the variable to store the specific image chosen by the user and assign its value:
 
-optionCleoImg.addEventListener("click", function () {
-  resetSliders();
-  showSlider(optionChosenCleo);
+  if (e.target.classList.contains("optionNyxImg")) {
+    optionChosen = optionChosenNyx;
+  } else if (e.target.classList.contains("optionCleoImg")) {
+    optionChosen = optionChosenCleo;
+  }
+  // We reset all sliders and show only the one that was chosen by the user:
+  if (e.target.classList.contains("petOptionImg")) {
+    resetSliders();
+    showSlider(optionChosen);
+  }
 });
 
 //Functions related with the slider functioning:
@@ -256,10 +260,11 @@ sliderArrowLeft.addEventListener("click", function (e) {
 //Dot event listeners:
 
 dots.addEventListener("click", function (e) {
-  resetSlides();
+  if (e.target.classList.contains("dots_dot")) {
+    resetSlides();
 
-  // console.log(slides[e.target.dataset.slide]);
-  slides[e.target.dataset.slide].classList.remove("hide");
-  slides[e.target.dataset.slide].classList.add("slideGetIntoView");
-  updateSelectedDot();
+    slides[e.target.dataset.slide].classList.remove("hide");
+    slides[e.target.dataset.slide].classList.add("slideGetIntoView");
+    updateSelectedDot();
+  }
 });
