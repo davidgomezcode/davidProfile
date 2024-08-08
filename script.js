@@ -49,6 +49,7 @@ scrollBackToTheTop.addEventListener("click", function () {
 const stickyImg = function (e) {
   if (!e[0].isIntersecting) {
     presentationImg.classList.add("fixed");
+    lawyerImage.classList.add("hidden");
   }
   if (e[0].isIntersecting) {
     presentationImg.classList.remove("fixed");
