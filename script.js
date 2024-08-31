@@ -33,10 +33,16 @@ let dotsDot;
 
 //Listener to hide or unhide the lawyer image:
 lawyerWord.addEventListener("click", function () {
-  lawyerImage.classList.toggle("hidden");
+  lawyerImage.classList.remove("hidden");
 });
 lawyerImage.addEventListener("click", function () {
-  lawyerImage.classList.toggle("hidden");
+  lawyerImage.classList.add("hidden");
+});
+//We close the image when we click in any other place that is not the image:
+document.addEventListener("click", function (e) {
+  if (!e.target.classList.contains("lawyerWord")) {
+    lawyerImage.classList.add("hidden");
+  }
 });
 
 //Button to scroll back to the top:
@@ -49,7 +55,7 @@ scrollBackToTheTop.addEventListener("click", function () {
 const stickyImg = function (e) {
   if (!e[0].isIntersecting) {
     presentationImg.classList.add("fixed");
-    lawyerImage.classList.add("hidden");
+    lawyerImage.classList.add("hidden"); //if its not intersecting, add the hidden class to the lawyer image
   }
   if (e[0].isIntersecting) {
     presentationImg.classList.remove("fixed");
