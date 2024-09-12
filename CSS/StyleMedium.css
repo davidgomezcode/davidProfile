@@ -1,0 +1,13 @@
+.secondParagraph {
+  margin-top: 5rem;
+  width: 50%;
+}
+
+.videogames {
+  margin-top: 7rem;
+  display: flex;
+  flex-direction: column;
+}
+.videogames div {
+  display: flex;
+}

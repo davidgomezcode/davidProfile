@@ -6,6 +6,11 @@
     <title>David Gómez Profile</title>
     <link rel="stylesheet" href="./CSS/Style.css" />
     <link
+      rel="stylesheet"
+      href="./CSS/StyleMedium.css"
+      media="screen and (min-width: 545px)"
+    />
+    <link
       href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600&display=swap"
       rel="stylesheet"
     />
@@ -39,7 +44,7 @@
         looks like a lot of fun.
       </p>
 
-      <p>
+      <p class="secondParagraph">
         This website has the purpose to show the personal projects in which I
         have worked so people can see my progress and maybe enjoy some of the
         websites I have build from scratch.
@@ -47,36 +52,38 @@
     </section>
 
     <section class="videogames">
-      <h1>Please find some videogames in this section. Hope you enjoy them!</h1>
-      <article class="game">
-        <a href="https://davidgomezcode.github.io/PigGame/">
-          <img
-            src="https://images.squarespace-cdn.com/content/v1/59ea6080a803bb2f70ecbae5/1550780906783-4N7P6W4241KPRQTLHIUH/pig-dice-fb680.jpg"
-            alt="game image"
-          />
-          <p>Pig Game</p>
-        </a>
-      </article>
+      <h1>Find some videogames in this section. Hope you enjoy them!</h1>
+      <div>
+        <article class="game">
+          <a href="https://davidgomezcode.github.io/PigGame/">
+            <img
+              src="https://images.squarespace-cdn.com/content/v1/59ea6080a803bb2f70ecbae5/1550780906783-4N7P6W4241KPRQTLHIUH/pig-dice-fb680.jpg"
+              alt="game image"
+            />
+            <p>Pig Game</p>
+          </a>
+        </article>
 
-      <article class="game">
-        <a href="https://davidgomezcode.github.io/GuessMyNumber/">
-          <img
-            src="https://play-lh.googleusercontent.com/3kAAD7OsbMmvnd2jhsX-tn9vCkrPVJYS76l2OxIiN8_lyjUp32L66uLQ3sJoY10gRkA"
-            alt="game image"
-          />
-          <p>Guess my number</p>
-        </a>
-      </article>
+        <article class="game">
+          <a href="https://davidgomezcode.github.io/GuessMyNumber/">
+            <img
+              src="https://play-lh.googleusercontent.com/3kAAD7OsbMmvnd2jhsX-tn9vCkrPVJYS76l2OxIiN8_lyjUp32L66uLQ3sJoY10gRkA"
+              alt="game image"
+            />
+            <p>Guess my number</p>
+          </a>
+        </article>
 
-      <article class="game">
-        <a href="https://davidgomezcode.github.io/piedraPapelTijeras/">
-          <img
-            src="https://hips.hearstapps.com/hmg-prod/images/people-playing-paper-rock-scissors-royalty-free-illustration-1583269312.jpg"
-            alt="game image"
-          />
-          <p>rock, scissors, paper</p>
-        </a>
-      </article>
+        <article class="game">
+          <a href="https://davidgomezcode.github.io/piedraPapelTijeras/">
+            <img
+              src="https://hips.hearstapps.com/hmg-prod/images/people-playing-paper-rock-scissors-royalty-free-illustration-1583269312.jpg"
+              alt="game image"
+            />
+            <p>rock, scissors, paper</p>
+          </a>
+        </article>
+      </div>
     </section>
 
     <section class="section">
@@ -95,7 +102,7 @@
         <a href="https://www.udemy.com/course/the-complete-javascript-course/"
           >Java Script in the front</a
         >
-        and afterwards I will study that same langage in the back NodeJS
+        and afterwards I will study that same language in the back NodeJS
       </p>
     </section>
 
@@ -106,13 +113,6 @@
         done with the event listeners target and bubbling phases. For instance,
         with only one click you can generate random colors as an echo:
       </p>
-
-      <!-- <p>
-        <a href="./playingWithColors/index.html"
-          >Click and see the echo of colors through your screen.</a
-        >
-      </p> -->
-
       <article class="colorWaves">
         <a href="./playingWithColors/colors.html">
           <img
@@ -123,6 +123,19 @@
         </a>
       </article>
 
+      <p>
+        This gadget and the next one were build using APIs. The present one is
+        the fetching of country data and the display of that data in the
+        container below.
+      </p>
+
+      <p>
+        Please write the name of the country and see some of its relevant data
+        appear
+      </p>
+      <article class="countryContainer">
+        <!-- Here goes the country the user writes -->
+      </article>
       <p>
         Using third parties libraries and relevant new APIs (like the
         geolocation API) I created this map, in which you can pin locations
@@ -135,7 +148,7 @@
         menu to have a log of your activities.
       </p>
 
-      <article class="colorWaves">
+      <article class="interactiveMap">
         <a href="https://davidgomezcode.github.io/Map/">
           <img
             src="https://i.pinimg.com/736x/54/cc/e7/54cce76d1039491dc206291c5532ac61.jpg"

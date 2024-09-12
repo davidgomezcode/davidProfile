@@ -96,6 +96,58 @@ sections.forEach((section) => {
   sectionObserver.observe(section); // We use the same observer to observe each section.
 });
 
+// Displaying map:
+
+// const getPosition = function () {
+//   return new Promise(function (resolve, reject) {
+//     navigator.geolocation.getCurrentPosition(
+//       (position) => resolve(position),
+//       (err) =>
+//         reject("hello there bitch. You do not have permission to my location.")
+//     );
+//   });
+// };
+
+// let userPosition = navigator.geolocation.getCurrentPosition((position) => {
+//   console.log(position);
+// });
+
+const countryContainer = document.querySelector(".countryContainer");
+
+const renderCountry = function (countryData) {
+  const html = `
+          <article class="country">
+            <img class="countryFlag" src="${countryData.flags.png}" />
+            <div class="country__data">
+              <h3 class="country__name">${countryData.name.common}</h3>
+              <h4 class="country__region">Region: ${countryData.region}</h4>
+              <p class="country__row"><span>👫</span> ${
+                countryData.population
+              }</p>
+              <p class="country__row"><span>🗣️</span> ${
+                countryData.languages.spa
+              }</p>
+              <p class="country__row"><span>💰</span> ${
+                countryData.currencies[Object.keys(countryData.currencies)[0]]
+                  .name
+              }</p>
+            </div>
+          </article>
+         `;
+
+  countryContainer.insertAdjacentHTML("beforeend", html);
+};
+
+const getCountryData = async function (country) {
+  const countryFetched = await fetch(
+    `https://restcountries.com/v3.1/name/${country}`
+  );
+  const [countryData] = await countryFetched.json();
+  renderCountry(countryData);
+};
+
+getCountryData("Colombia");
+
 //Slider code:
 
 let slideShown; //We store what slide is currently being shown
