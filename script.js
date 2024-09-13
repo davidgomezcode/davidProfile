@@ -11,6 +11,11 @@ const lawyerWord = document.querySelector(".lawyerWord");
 const lawyerImage = document.querySelector(".lawyerImage");
 const sections = document.querySelectorAll(".section");
 
+const countryUserInput = document.querySelector(".countryUserInput");
+const countryUserInputButton = document.querySelector(
+  ".countryUserInputButton"
+);
+
 //Slider selectors:
 //Pet selection:
 
@@ -96,27 +101,13 @@ sections.forEach((section) => {
   sectionObserver.observe(section); // We use the same observer to observe each section.
 });
 
-// Displaying map:
-
-// const getPosition = function () {
-//   return new Promise(function (resolve, reject) {
-//     navigator.geolocation.getCurrentPosition(
-//       (position) => resolve(position),
-//       (err) =>
-//         reject("hello there bitch. You do not have permission to my location.")
-//     );
-//   });
-// };
-
-// let userPosition = navigator.geolocation.getCurrentPosition((position) => {
-//   console.log(position);
-// });
+// Displaying country:
 
 const countryContainer = document.querySelector(".countryContainer");
 
 const renderCountry = function (countryData) {
   const html = `
-          <article class="country">
+          <article class="countryData">
             <img class="countryFlag" src="${countryData.flags.png}" />
             <div class="country__data">
               <h3 class="country__name">${countryData.name.common}</h3>
@@ -146,7 +137,21 @@ const getCountryData = async function (country) {
   renderCountry(countryData);
 };
 
-getCountryData("Colombia");
+// getCountryData("Colombia");
+
+countryUserInput.addEventListener("keydown", function (event) {
+  if (event.key === "Enter") {
+    //If the user hits enter
+    document.querySelector(".countryContainer").innerHTML = ""; //Clean the content
+    getCountryData(countryUserInput.value); // Display the information of the country
+  }
+});
+
+countryUserInputButton.addEventListener("click", function () {
+  //If the user hits enter
+  document.querySelector(".countryContainer").innerHTML = ""; //Clean the content
+  getCountryData(countryUserInput.value); // Display the information of the country
+});
 
 //Slider code:
 
