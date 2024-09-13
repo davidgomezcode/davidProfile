@@ -129,7 +129,9 @@ a:hover {
 }
 
 /* API with county data */
-
+.countryUserDiv {
+  text-align: center;
+}
 .countryUserInput {
   padding: 1rem;
   font-size: 1.6rem;
@@ -140,7 +142,7 @@ a:hover {
   transition: border-color 0.3s ease; /* Smooth transition for border color */
 }
 .countryUserInput:focus {
-  border-color: #007bff;
+  border: 4px solid #eed6aa;
 }
 .countryUserInputButton {
   border-radius: 2rem;
@@ -151,13 +153,14 @@ a:hover {
   font-weight: bolder;
   font-size: 1.8rem;
   margin-left: 2rem;
+  margin-top: 2rem;
 }
 .countryContainer {
-  border: 2px solid white;
+  border: 0.6rem solid #99665f;
   border-radius: 4rem;
-  padding: 2rem;
+  padding: 1.2rem;
   max-width: 52rem;
-  width: 45%;
+  width: 55%;
   margin-bottom: 4rem;
   margin-top: 2rem;
 }

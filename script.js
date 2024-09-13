@@ -112,9 +112,7 @@ const renderCountry = function (countryData) {
             <div class="country__data">
               <h3 class="country__name">${countryData.name.common}</h3>
               <h4 class="country__region">Region: ${countryData.region}</h4>
-              <p class="country__row"><span>👫</span> ${
-                countryData.population
-              }</p>
+              <p class="country__row"><span>👫</span> ${countryData.population.toLocaleString()}</p>
               <p class="country__row"><span>🗣️</span> ${
                 countryData.languages.spa
               }</p>
@@ -122,6 +120,7 @@ const renderCountry = function (countryData) {
                 countryData.currencies[Object.keys(countryData.currencies)[0]]
                   .name
               }</p>
+              <img class="countryFlag" src="${countryData.coatOfArms.png}" />
             </div>
           </article>
          `;
@@ -129,11 +128,15 @@ const renderCountry = function (countryData) {
   countryContainer.insertAdjacentHTML("beforeend", html);
 };
 
+let population;
+
 const getCountryData = async function (country) {
   const countryFetched = await fetch(
     `https://restcountries.com/v3.1/name/${country}`
   );
   const [countryData] = await countryFetched.json();
+
+  console.log(countryData);
   renderCountry(countryData);
 };
 
