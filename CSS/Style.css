@@ -101,6 +101,9 @@ a {
 a:hover {
   transform: scale(1.2);
 }
+.StyleLargeMapParagraph {
+  display: none;
+}
 .videogames .game,
 .gadgets .colorWaves,
 .gadgets .interactiveMap {
@@ -113,6 +116,7 @@ a:hover {
 .gadgets .colorWaves,
 .gadgets .interactiveMap {
   width: 19.5rem;
+  margin: 0 auto;
 }
 .videogames .game img,
 .gadgets .colorWaves img,
@@ -127,10 +131,15 @@ a:hover {
 .videogames .game p {
   text-align: center;
 }
-
+.divider {
+  display: none;
+}
 /* API with county data */
 .countryUserDiv {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .countryUserInput {
   padding: 1rem;
@@ -140,6 +149,7 @@ a:hover {
   /* box-sizing: border-box; Ensures padding and border are included in the element's total width/height */
   outline: none; /* Removes the default blue outline on focus */
   transition: border-color 0.3s ease; /* Smooth transition for border color */
+  max-width: 23rem;
 }
 .countryUserInput:focus {
   border: 4px solid #eed6aa;
@@ -159,10 +169,11 @@ a:hover {
   border: 0.6rem solid #99665f;
   border-radius: 4rem;
   padding: 1.2rem;
-  max-width: 52rem;
+  max-width: 30rem;
   width: 55%;
-  margin-bottom: 4rem;
-  margin-top: 2rem;
+  /* margin-bottom: 4rem;
+  margin-top: 2rem; */
+  margin: 4rem auto 2rem auto;
 }
 .countryContainer .countryData {
   text-align: center;
@@ -174,6 +185,9 @@ a:hover {
 
 .gadgetP {
   margin-top: 1rem;
+}
+.forkifyApp {
+  text-align-last: center;
 }
 .petsPictures {
   /* height: 70vh; */
@@ -187,6 +201,7 @@ a:hover {
   display: flex;
   flex-flow: wrap;
   text-align: center;
+  justify-content: center;
   margin: 1rem;
 }
 
@@ -214,6 +229,7 @@ a:hover {
 .sliderParent {
   background-color: #c0c0c0;
   width: 95%;
+  max-width: 50rem;
   height: 46rem;
   margin: 6rem auto;
   position: relative;

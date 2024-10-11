@@ -1,0 +1,118 @@
+.presentation,
+.StyleLargeVideogames,
+.gadgets,
+.petsPictures {
+  margin: 0 5%;
+}
+.presentation-img img {
+  max-width: 15rem;
+}
+
+.presentation-img.fixed {
+  max-width: 30rem;
+}
+/* Start of videogames section */
+.StyleLargeVideogames {
+  margin-top: 8rem;
+}
+.StyleLargeVideogames h1 {
+  text-align: center;
+}
+.StyleLargeVideogamesDiv,
+.StyleLargeColorWaves {
+  display: flex;
+  /* justify-content: center; */
+  /* max-width: 90%; */
+}
+.videogames {
+  margin-left: 5rem;
+}
+
+.videogames div {
+  justify-content: space-between;
+}
+.starting {
+  margin-left: 8rem;
+  margin-top: 7rem;
+}
+/* Start of color waves section */
+.StyleLargeColorWaves {
+  display: flex;
+}
+.StyleLargeColorWavesParagraph {
+  width: 40%;
+}
+.gadgets .colorWaves {
+  width: 40%;
+}
+.videogames .game img,
+.gadgets .colorWaves img,
+.gadgets .interactiveMap img {
+  width: 18rem;
+}
+
+/* Start of Country section */
+.divider {
+  display: block;
+  width: 90%;
+  margin: 4rem auto;
+  border-bottom: 0.4rem solid #99665f;
+}
+.StyleLargeCountryData {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: left;
+  margin-bottom: 5rem;
+}
+.StyleLargeCountryData p {
+  width: 50%;
+  margin-left: 44rem;
+}
+
+/* Start of Map section */
+
+.StyleLargeMap {
+  display: flex;
+}
+.StyleMapParagraphs {
+  display: none;
+}
+.StyleLargeMap .StyleLargeMapParagraph {
+  display: contents;
+  width: 50%;
+}
+.gadgets .interactiveMap {
+  width: 256%;
+}
+/* Start of forkify section */
+.StyleLargeForkify {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.StyleLargeForkify p {
+  width: 72%;
+}
+.StyleLargeForkifyArticle {
+  width: 50%;
+  margin-left: 19rem;
+}
+
+/* Start of Pets section */
+.petsPictures {
+  display: flex;
+  flex-direction: column;
+  margin-top: 4rem;
+}
+.petsPictures h1 {
+  align-self: center;
+}
+
+.StyleLargePets {
+  display: flex;
+}
+.StyleLargePets p {
+  width: 46%;
+}
+.StyleLargePets .petOptionsParent {
+  margin-left: 10rem;
+}
