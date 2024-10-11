@@ -25,11 +25,14 @@
   /* max-width: 90%; */
 }
 .videogames {
-  margin-left: 5rem;
+  margin-left: 2rem;
 }
 
 .videogames div {
   justify-content: space-between;
+}
+.videogames .StyleLargeMiddleGame {
+  margin: 0 2rem;
 }
 .starting {
   margin-left: 8rem;
@@ -66,9 +69,12 @@
 }
 .StyleLargeCountryData p {
   width: 50%;
-  margin-left: 44rem;
+  margin-left: 33rem;
 }
 
+.StyleLargeCountryData .StyleLargeCountryFetch {
+  margin-left: 11rem;
+}
 /* Start of Map section */
 
 .StyleLargeMap {
@@ -95,6 +101,9 @@
 .StyleLargeForkifyArticle {
   width: 50%;
   margin-left: 19rem;
+}
+.StyleLargeForkifyArticle a {
+  text-align: -webkit-center;
 }
 
 /* Start of Pets section */
