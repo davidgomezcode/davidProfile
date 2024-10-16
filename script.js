@@ -206,6 +206,9 @@ const showSlider = function (optionChosen) {
   optionChosen.querySelectorAll(".article").forEach((article) => {
     article.classList.add("slide");
   });
+  // adding 2.5rem of padding so the dots are clearly visible:
+  document.querySelector(".sliderParent").classList.add("addPadding");
+
   //After resetting all sliders and showing the option chosen, we redefine the variable slides:
   slides = document.querySelectorAll(".optionChosen .article.slide");
   slides.forEach((_, i) => {

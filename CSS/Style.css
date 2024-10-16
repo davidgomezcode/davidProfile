@@ -230,7 +230,7 @@ a:hover {
   background-color: #c0c0c0;
   width: 95%;
   max-width: 50rem;
-  height: 46rem;
+  height: auto;
   margin: 6rem auto;
   position: relative;
   border-radius: 4rem;
@@ -239,6 +239,9 @@ a:hover {
   justify-content: center;
   /* font */
   color: black;
+}
+.addPadding {
+  padding-bottom: 2.5rem;
 }
 .sliderParentArrow img {
   width: 3rem;
